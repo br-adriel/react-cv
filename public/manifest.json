@@ -1,0 +1,10 @@
+{
+  "short_name": "meuCurrículo",
+  "name": "meuCurrículo",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FDE74C",
+  "background_color": "#4C5B5C",
+  "description": "Gerador de currículos"
+}
