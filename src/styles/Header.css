@@ -1,0 +1,7 @@
+header {
+  background: var(--tema);
+  width: 100%;
+  padding: 12px 16px;
+  text-align: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
