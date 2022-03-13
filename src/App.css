@@ -30,6 +30,7 @@
 
 main {
   width: min(100%, 1280px);
+  padding: 0 16px;
 }
 
 input {
