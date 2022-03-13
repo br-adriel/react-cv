@@ -31,6 +31,9 @@
 main {
   width: min(100%, 1280px);
   padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
