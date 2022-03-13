@@ -12,6 +12,11 @@
   font-family: 'Titillium Web', sans-serif;
 }
 
+::selection {
+  color: var(--tema);
+  background-color: #000;
+}
+
 #root {
   width: 100vw;
   min-height: 100vh;
