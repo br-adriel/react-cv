@@ -74,3 +74,8 @@ button:hover {
 .curriculo {
   display: none;
 }
+
+.botoes {
+  display: flex;
+  gap: 8px;
+}
