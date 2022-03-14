@@ -67,6 +67,10 @@ button:hover {
   background: #000;
 }
 
+button svg {
+  margin: 4px 0;
+}
+
 .dados {
   width: 100%;
   display: flex;
