@@ -82,4 +82,14 @@ button:hover {
 .botoes {
   display: flex;
   gap: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
 }
