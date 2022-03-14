@@ -11,6 +11,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Titillium Web', sans-serif;
+  max-width: 100%;
 }
 
 ::selection {
