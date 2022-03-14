@@ -3,10 +3,11 @@ import FormField from './FormField';
 
 class FormContato extends Component {
   render() {
+    const { subContato } = this.props;
     return (
       <>
         <h2>Informações de contato</h2>
-        <form action=''>
+        <form action='' onSubmit={(e) => subContato(e)}>
           <FormField
             id='nome'
             label='Nome completo:'

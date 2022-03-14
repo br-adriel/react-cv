@@ -4,9 +4,10 @@ import FormContato from './FormContato';
 
 class Formulario extends Component {
   render() {
+    const { subContato } = this.props;
     return (
       <Card>
-        <FormContato />
+        <FormContato subContato={subContato} />
       </Card>
     );
   }
