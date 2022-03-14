@@ -7,7 +7,7 @@ class FormContato extends Component {
     return (
       <>
         <h2>Informações de contato</h2>
-        <form action=''>
+        <form action='' onSubmit={() => mudarForm('formacao')}>
           <FormField
             id='nome'
             label='Nome completo:'
@@ -52,9 +52,7 @@ class FormContato extends Component {
             iptValue={states.linkedin}
             iptChange={defContatos.defLinkedin}
           />
-          <button type='submit' onClick={() => mudarForm('formacao')}>
-            Próximo
-          </button>
+          <button type='submit'>Próximo</button>
         </form>
       </>
     );
