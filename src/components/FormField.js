@@ -3,7 +3,7 @@ import '../styles/FormField.css';
 
 class FormField extends Component {
   render() {
-    const { id, label, atributos, iptValue, iptChange } = this.props;
+    const { id, label, atributos, iptValue, iptChange = () => {} } = this.props;
     return (
       <div className='field'>
         <label htmlFor={id}>{label}</label>
