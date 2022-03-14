@@ -23,7 +23,7 @@ class App extends Component {
 
     // formacao
     this.novaFormacao = this.novaFormacao.bind(this);
-    this.apagarFormacao = this.novaFormacao.bind(this);
+    this.apagarFormacao = this.apagarFormacao.bind(this);
 
     // form exibido
     this.mudarForm = this.mudarForm.bind(this);
