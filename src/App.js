@@ -13,26 +13,41 @@ class App extends Component {
       linkedin: '',
     };
 
-    this.submitContato = this.submitContato.bind(this);
+    this.defNome = this.defNome.bind(this);
+    this.defEmail = this.defEmail.bind(this);
+    this.defCelular = this.defCelular.bind(this);
+    this.defLinkedin = this.defLinkedin.bind(this);
+    this.mudarForm = this.mudarForm.bind(this);
   }
 
-  submitContato(e) {
-    e.preventDefault();
-    this.setState({
-      nome: e.target.nome.value,
-      email: e.target.email.value,
-      celular: e.target.celular.value,
-      linkedin: e.target.linkedin.value,
-    });
+  // states de contato
+  defNome = (e) => this.setState({ nome: e.target.value });
+  defEmail = (e) => this.setState({ email: e.target.value });
+  defCelular = (e) => this.setState({ celular: e.target.value });
+  defLinkedin = (e) => this.setState({ linkedin: e.target.value });
+
+  // state de form exibido
+  mudarForm(nomeForm) {
+    this.setState({ formAtual: nomeForm });
   }
 
   render() {
+    const defContatos = {
+      defNome: this.defNome,
+      defEmail: this.defEmail,
+      defCelular: this.defCelular,
+      defLinkedin: this.defLinkedin,
+    };
     return (
       <>
         <Header />
         <main>
           <section className='dados'>
-            <Formulario subContato={this.submitContato} />
+            <Formulario
+              states={this.state}
+              mudarForm={this.mudarForm}
+              defContatos={defContatos}
+            />
           </section>
           <section className='curriculo'></section>
         </main>

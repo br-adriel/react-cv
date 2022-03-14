@@ -4,12 +4,17 @@ import FormContato from './FormContato';
 
 class Formulario extends Component {
   render() {
-    const { subContato } = this.props;
-    return (
+    const { defContatos, states, mudarForm } = this.props;
+    const formContato = (
       <Card>
-        <FormContato subContato={subContato} />
+        <FormContato
+          defContatos={defContatos}
+          states={states}
+          mudarForm={mudarForm}
+        />
       </Card>
     );
+    return formContato;
   }
 }
 

@@ -3,30 +3,34 @@ import FormField from './FormField';
 
 class FormContato extends Component {
   render() {
-    const { subContato } = this.props;
+    const { defContatos, states, mudarForm } = this.props;
     return (
       <>
         <h2>Informações de contato</h2>
-        <form action='' onSubmit={(e) => subContato(e)}>
+        <form action=''>
           <FormField
             id='nome'
             label='Nome completo:'
             atributos={{
               type: 'text',
               required: true,
-              minlength: 3,
+              minLength: 3,
               name: 'nome',
             }}
+            iptValue={states.nome}
+            iptChange={defContatos.defNome}
           />
           <FormField
             id='celular'
             label='Celular:'
             atributos={{
               type: 'tel',
-              minlength: 11,
-              maxlength: 11,
+              minLength: 11,
+              maxLength: 11,
               name: 'celular',
             }}
+            iptValue={states.celular}
+            iptChange={defContatos.defCelular}
           />
           <FormField
             id='email'
@@ -35,6 +39,8 @@ class FormContato extends Component {
               type: 'email',
               name: 'email',
             }}
+            iptValue={states.email}
+            iptChange={defContatos.defEmail}
           />
           <FormField
             id='linkedin'
@@ -43,8 +49,12 @@ class FormContato extends Component {
               type: 'text',
               name: 'linkedin',
             }}
+            iptValue={states.linkedin}
+            iptChange={defContatos.defLinkedin}
           />
-          <button type='submit'>Próximo</button>
+          <button type='submit' onClick={() => mudarForm('formacao')}>
+            Próximo
+          </button>
         </form>
       </>
     );
