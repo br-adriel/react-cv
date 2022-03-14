@@ -12,12 +12,20 @@ class App extends Component {
       email: '',
       linkedin: '',
       formAtual: 'contato',
+      formacoes: [],
     };
 
+    // contato
     this.defNome = this.defNome.bind(this);
     this.defEmail = this.defEmail.bind(this);
     this.defCelular = this.defCelular.bind(this);
     this.defLinkedin = this.defLinkedin.bind(this);
+
+    // formacao
+    this.novaFormacao = this.novaFormacao.bind(this);
+    this.apagarFormacao = this.novaFormacao.bind(this);
+
+    // form exibido
     this.mudarForm = this.mudarForm.bind(this);
   }
 
@@ -26,6 +34,21 @@ class App extends Component {
   defEmail = (e) => this.setState({ email: e.target.value });
   defCelular = (e) => this.setState({ celular: e.target.value });
   defLinkedin = (e) => this.setState({ linkedin: e.target.value });
+
+  // states de formação
+  novaFormacao = (formacao) =>
+    this.setState((ant) => {
+      return {
+        formacoes: [...ant.formacoes, formacao],
+      };
+    });
+
+  apagarFormacao = (id) =>
+    this.setState((ant) => {
+      return {
+        formacoes: ant.formacoes.filter((f) => f.id !== id),
+      };
+    });
 
   // state de form exibido
   mudarForm(nomeForm) {
@@ -39,6 +62,10 @@ class App extends Component {
       defCelular: this.defCelular,
       defLinkedin: this.defLinkedin,
     };
+    const funcFormacao = {
+      nova: this.novaFormacao,
+      apagar: this.apagarFormacao,
+    };
     return (
       <>
         <Header />
@@ -48,6 +75,7 @@ class App extends Component {
               states={this.state}
               mudarForm={this.mudarForm}
               defContatos={defContatos}
+              funcFormacao={funcFormacao}
             />
           </section>
           <section className='curriculo'></section>
