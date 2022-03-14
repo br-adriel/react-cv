@@ -22,7 +22,7 @@ class FormContato extends Component {
             label='Celular:'
             atributos={{
               type: 'tel',
-              minlength: 9,
+              minlength: 11,
               maxlength: 11,
               name: 'celular',
             }}
