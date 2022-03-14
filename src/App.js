@@ -11,6 +11,7 @@ class App extends Component {
       celular: '',
       email: '',
       linkedin: '',
+      formAtual: 'contato',
     };
 
     this.defNome = this.defNome.bind(this);
