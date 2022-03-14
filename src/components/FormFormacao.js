@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import FormField from './FormField';
 import uniqid from 'uniqid';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 class FormFormacao extends Component {
   render() {
     const { mudarForm, novaFormacao } = this.props;
@@ -62,8 +63,20 @@ class FormFormacao extends Component {
             <button type='submit' className='mr-auto'>
               Adicionar
             </button>
-            <button onClick={() => mudarForm('contato')}>Voltar</button>
-            <button>Próximo</button>
+            <button onClick={() => mudarForm('contato')}>
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                alt='Seta para a esquerda'
+                title='Anterior'
+              />
+            </button>
+            <button>
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                alt='Seta para a direita'
+                title='Próximo'
+              />
+            </button>
           </div>
         </form>
       </>

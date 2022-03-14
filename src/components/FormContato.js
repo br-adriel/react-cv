@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import FormField from './FormField';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 class FormContato extends Component {
   render() {
@@ -52,7 +54,13 @@ class FormContato extends Component {
             iptValue={states.linkedin}
             iptChange={defContatos.defLinkedin}
           />
-          <button type='submit'>Próximo</button>
+          <button type='submit'>
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              alt='Seta para a direita'
+              title='Próximo'
+            />
+          </button>
         </form>
       </>
     );

@@ -18,8 +18,11 @@ class Formacao extends Component {
             onClick={() => apagarFormacao(formacao.id)}
             className='ml-auto'
           >
-            <FontAwesomeIcon icon={faTrashCan} />
-            Apagar
+            <FontAwesomeIcon
+              icon={faTrashCan}
+              alt='Ícone de lixeira'
+              title='Apagar'
+            />
           </button>
         </div>
       </Card>
