@@ -59,8 +59,10 @@ class FormFormacao extends Component {
             }}
           />
           <div className='botoes'>
+            <button type='submit' className='mr-auto'>
+              Adicionar
+            </button>
             <button onClick={() => mudarForm('contato')}>Voltar</button>
-            <button type='submit'>Adicionar</button>
             <button>Próximo</button>
           </div>
         </form>
