@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faAt } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import '../../styles/curriculo/Contato.css';
 
 class Contato extends Component {
   formatarCelular = (numero) => {
