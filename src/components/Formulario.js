@@ -4,6 +4,7 @@ import FormContato from './FormContato';
 import FormFormacao from './FormFormacao';
 import Formacoes from './Formacoes';
 import FormExperiencia from './FormExperiencia';
+import Experiencias from './Experiencias';
 class Formulario extends Component {
   render() {
     const { defContatos, funcFormacao, funcExperiencia } = this.props;
@@ -36,6 +37,12 @@ class Formulario extends Component {
         />
       </Card>
     );
+    const cardsExperiencia = (
+      <Experiencias
+        experiencias={states.experiencias}
+        apagarExperiencia={funcExperiencia.apagar}
+      />
+    );
 
     switch (states.formAtual) {
       case 'formacao':
@@ -46,7 +53,12 @@ class Formulario extends Component {
           </>
         );
       case 'experiencia':
-        return formExperiencia;
+        return (
+          <>
+            {formExperiencia}
+            {cardsExperiencia}
+          </>
+        );
       default:
         return formContato;
     }
