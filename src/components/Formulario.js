@@ -55,7 +55,7 @@ class Formulario extends Component {
     // habilidades
     const formHabilidades = (
       <Card>
-        <FormHabilidade mudarForm={mudarForm} />;
+        <FormHabilidade mudarForm={mudarForm} />
       </Card>
     );
 

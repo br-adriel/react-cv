@@ -50,7 +50,7 @@ class FormHabilidade extends Component {
                 title='Anterior'
               />
             </button>
-            <button onCLick={() => window.print()}>
+            <button onClick={() => window.print()}>
               <FontAwesomeIcon
                 icon={faPrint}
                 alt='Impressora'
