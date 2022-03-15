@@ -104,7 +104,7 @@ class FormExperiencia extends Component {
                 title='Anterior'
               />
             </button>
-            <button>
+            <button onClick={() => mudarForm('habilidade')}>
               <FontAwesomeIcon
                 icon={faArrowRight}
                 alt='Seta para a direita'
