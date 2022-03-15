@@ -6,7 +6,7 @@ import { faArrowLeft, faPrint } from '@fortawesome/free-solid-svg-icons';
 
 class FormHabilidade extends Component {
   render() {
-    const { mudarForm, novaHabilidade = () => {} } = this.props;
+    const { mudarForm, novaHabilidade } = this.props;
     const submitForm = (e) => {
       e.preventDefault();
       const habilidade = {
