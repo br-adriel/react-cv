@@ -6,12 +6,18 @@ import Formacoes from './Formacoes';
 import FormExperiencia from './FormExperiencia';
 import Experiencias from './Experiencias';
 import FormHabilidade from './FormHabilidade';
+import Habilidades from './Habilidades';
 
 class Formulario extends Component {
   render() {
-    const { defContatos, funcFormacao, funcExperiencia, funcHabilidade } =
-      this.props;
-    const { states, mudarForm } = this.props;
+    const {
+      defContatos,
+      funcFormacao,
+      funcExperiencia,
+      funcHabilidade,
+      states,
+      mudarForm,
+    } = this.props;
 
     // contato
     const formContato = (
@@ -54,13 +60,19 @@ class Formulario extends Component {
     );
 
     // habilidades
-    const formHabilidades = (
+    const formHabilidade = (
       <Card>
         <FormHabilidade
           mudarForm={mudarForm}
           novaHabilidade={funcHabilidade.nova}
         />
       </Card>
+    );
+    const cardsHabilidade = (
+      <Habilidades
+        habilidades={states.habilidades}
+        apagarHabilidade={funcHabilidade.apagar}
+      />
     );
 
     switch (states.formAtual) {
@@ -79,7 +91,12 @@ class Formulario extends Component {
           </>
         );
       case 'habilidade':
-        return formHabilidades;
+        return (
+          <>
+            {formHabilidade}
+            {cardsHabilidade}
+          </>
+        );
       default:
         return formContato;
     }
