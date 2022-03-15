@@ -10,6 +10,14 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.card ul {
+  list-style: square;
+}
+
+.card li {
+  margin-left: 16px;
+}
+
 @media screen and (min-width: 600px) {
   .card {
     width: max(200px, 55%);
