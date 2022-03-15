@@ -70,7 +70,7 @@ class FormFormacao extends Component {
                 title='Anterior'
               />
             </button>
-            <button>
+            <button onClick={() => mudarForm('experiencia')}>
               <FontAwesomeIcon
                 icon={faArrowRight}
                 alt='Seta para a direita'
