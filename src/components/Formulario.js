@@ -9,7 +9,8 @@ import FormHabilidade from './FormHabilidade';
 
 class Formulario extends Component {
   render() {
-    const { defContatos, funcFormacao, funcExperiencia } = this.props;
+    const { defContatos, funcFormacao, funcExperiencia, funcHabilidade } =
+      this.props;
     const { states, mudarForm } = this.props;
 
     // contato
@@ -55,7 +56,10 @@ class Formulario extends Component {
     // habilidades
     const formHabilidades = (
       <Card>
-        <FormHabilidade mudarForm={mudarForm} />
+        <FormHabilidade
+          mudarForm={mudarForm}
+          novaHabilidade={funcHabilidade.nova}
+        />
       </Card>
     );
 
