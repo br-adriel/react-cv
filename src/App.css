@@ -79,10 +79,6 @@ button svg {
   gap: 14px;
 }
 
-.curriculo {
-  display: none;
-}
-
 .botoes {
   display: flex;
   gap: 8px;
@@ -104,4 +100,12 @@ button svg {
   gap: 14px;
   width: 100%;
   align-items: center;
+}
+
+@media print {
+  header,
+  footer,
+  .dados {
+    display: none;
+  }
 }
