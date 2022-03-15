@@ -108,4 +108,8 @@ button svg {
   .dados {
     display: none;
   }
+
+  main {
+    padding: 0;
+  }
 }
