@@ -31,6 +31,10 @@ class App extends Component {
     this.novaExperiencia = this.novaExperiencia.bind(this);
     this.apagarExperiencia = this.apagarExperiencia.bind(this);
 
+    // habilidade
+    this.novaHabilidade = this.novaHabilidade.bind(this);
+    this.apagarHabilidade = this.apagarHabilidade.bind(this);
+
     // form exibido
     this.mudarForm = this.mudarForm.bind(this);
   }
@@ -71,6 +75,21 @@ class App extends Component {
       };
     });
 
+  // states de habilidades
+  novaHabilidade = (habilidade) =>
+    this.setState((ant) => {
+      return {
+        habilidades: [...ant.habilidades, habilidade],
+      };
+    });
+
+  apagarHabilidade = (id) =>
+    this.setState((ant) => {
+      return {
+        habilidades: ant.ehabilidade.filter((h) => h.id !== id),
+      };
+    });
+
   // state de form exibido
   mudarForm(nomeForm) {
     this.setState({ formAtual: nomeForm });
@@ -91,6 +110,10 @@ class App extends Component {
       nova: this.novaExperiencia,
       apagar: this.apagarExperiencia,
     };
+    const funcHabilidade = {
+      nova: this.novaHabilidade,
+      apagar: this.apagarHabilidade,
+    };
     return (
       <>
         <Header />
@@ -102,6 +125,7 @@ class App extends Component {
               defContatos={defContatos}
               funcFormacao={funcFormacao}
               funcExperiencia={funcExperiencia}
+              funcHabilidade={funcHabilidade}
             />
           </section>
           <section className='curriculo'></section>
