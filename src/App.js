@@ -14,6 +14,7 @@ class App extends Component {
       formAtual: 'contato',
       formacoes: [],
       experiencias: [],
+      habilidades: [],
     };
 
     // contato
