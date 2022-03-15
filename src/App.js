@@ -86,6 +86,10 @@ class App extends Component {
       nova: this.novaFormacao,
       apagar: this.apagarFormacao,
     };
+    const funcExperiencia = {
+      nova: this.novaExperiencia,
+      apagar: this.apagarExperiencia,
+    };
     return (
       <>
         <Header />
@@ -96,6 +100,7 @@ class App extends Component {
               mudarForm={this.mudarForm}
               defContatos={defContatos}
               funcFormacao={funcFormacao}
+              funcExperiencia={funcExperiencia}
             />
           </section>
           <section className='curriculo'></section>
