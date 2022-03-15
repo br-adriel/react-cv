@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import '../../styles/curriculo/Curriculo.css';
+import '../../styles/curriculo/Curriculo.css';
 
 class Curriculo extends Component {
   render() {

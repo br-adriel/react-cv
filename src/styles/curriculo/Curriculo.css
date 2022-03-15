@@ -1,0 +1,13 @@
+.curriculo {
+  display: none;
+}
+
+@media print {
+  .curriculo {
+    display: grid;
+    grid-template: repeat(3, auto) / repeat(2, auto);
+    row-gap: 1.5cm;
+    column-gap: 1cm;
+    width: 100%;
+  }
+}
