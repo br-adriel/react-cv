@@ -26,6 +26,10 @@ class App extends Component {
     this.novaFormacao = this.novaFormacao.bind(this);
     this.apagarFormacao = this.apagarFormacao.bind(this);
 
+    // experiencia
+    this.novaExperiencia = this.novaExperiencia.bind(this);
+    this.apagarExperiencia = this.apagarExperiencia.bind(this);
+
     // form exibido
     this.mudarForm = this.mudarForm.bind(this);
   }
@@ -48,6 +52,21 @@ class App extends Component {
     this.setState((ant) => {
       return {
         formacoes: ant.formacoes.filter((f) => f.id !== id),
+      };
+    });
+
+  // states de experiencias
+  novaExperiencia = (experiencia) =>
+    this.setState((ant) => {
+      return {
+        experiencias: [...ant.experiencias, experiencia],
+      };
+    });
+
+  apagarExperiencia = (id) =>
+    this.setState((ant) => {
+      return {
+        experiencias: ant.experiencias.filter((e) => e.id !== id),
       };
     });
 
