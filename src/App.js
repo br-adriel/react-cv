@@ -86,7 +86,7 @@ class App extends Component {
   apagarHabilidade = (id) =>
     this.setState((ant) => {
       return {
-        habilidades: ant.ehabilidade.filter((h) => h.id !== id),
+        habilidades: ant.habilidades.filter((h) => h.id !== id),
       };
     });
 
