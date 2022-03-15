@@ -6,7 +6,8 @@ import Formacoes from './Formacoes';
 import FormExperiencia from './FormExperiencia';
 class Formulario extends Component {
   render() {
-    const { defContatos, states, mudarForm, funcFormacao } = this.props;
+    const { defContatos, funcFormacao, funcExperiencia } = this.props;
+    const { states, mudarForm } = this.props;
     const formContato = (
       <Card>
         <FormContato
@@ -29,7 +30,10 @@ class Formulario extends Component {
     );
     const formExperiencia = (
       <Card>
-        <FormExperiencia mudarForm={mudarForm} />
+        <FormExperiencia
+          mudarForm={mudarForm}
+          novaExperiencia={funcExperiencia.nova}
+        />
       </Card>
     );
 
