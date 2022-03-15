@@ -6,7 +6,7 @@ class Formacoes extends Component {
   render() {
     const { formacoes, apagarFormacao } = this.props;
     return (
-      <div className='formacoes'>
+      <div className='formacoes cards'>
         {formacoes.map((formacao, i) => {
           return (
             <Formacao

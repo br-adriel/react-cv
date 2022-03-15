@@ -1,11 +1,3 @@
-.formacoes {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  width: 100%;
-  align-items: center;
-}
-
 .formacoes .card {
   gap: 2px;
 }
