@@ -13,6 +13,7 @@ class App extends Component {
       linkedin: '',
       formAtual: 'contato',
       formacoes: [],
+      experiencias: [],
     };
 
     // contato
