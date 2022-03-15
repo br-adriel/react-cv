@@ -3,6 +3,8 @@ import Footer from './components/Footer';
 import './App.css';
 import Formulario from './components/Formulario';
 import { Component } from 'react';
+import Curriculo from './components/curriculo/Curriculo';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -128,7 +130,7 @@ class App extends Component {
               funcHabilidade={funcHabilidade}
             />
           </section>
-          <section className='curriculo'></section>
+          <Curriculo states={this.state} />
         </main>
         <Footer />
       </>
