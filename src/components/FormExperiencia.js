@@ -1,23 +1,31 @@
 import { Component } from 'react';
 import FormField from './FormField';
-// import uniqid from 'uniqid';
+import uniqid from 'uniqid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 class FormExperiencia extends Component {
   render() {
-    const { mudarForm } = this.props;
-    // const submitForm = (e) => {
-    //   e.preventDefault();
-    //   const experiencia = {
-    //     id: uniqid(),
-    //   };
-    //   e.target.reset();
-    // };
+    const { mudarForm, novaExperiencia } = this.props;
+    const submitForm = (e) => {
+      e.preventDefault();
+      const experiencia = {
+        id: uniqid(),
+        cargo: e.target.cargo.value,
+        empresa: e.target.empresa.value,
+        mesInicio: e.target.mesInicio.value,
+        anoInicio: e.target.anoInicio.value,
+        mesFim: e.target.mesFim.value,
+        anoFim: e.target.anoFim.value,
+        tarefas: e.target.tarefas.value.split('. '),
+      };
+      novaExperiencia(experiencia);
+      e.target.reset();
+    };
     return (
       <>
         <h2>Experiência profissional</h2>
-        <form action=''>
+        <form action='' onSubmit={(e) => submitForm(e)}>
           <FormField
             id='cargo'
             label='Cargo:'
@@ -81,7 +89,7 @@ class FormExperiencia extends Component {
             label='Tarefas desempenhadas (separe por ponto e espaço):'
             atributos={{
               type: 'text',
-              name: 'tarefasDesempenhadas',
+              name: 'tarefas',
               minLength: 3,
             }}
           />
