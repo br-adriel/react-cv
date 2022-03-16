@@ -26,6 +26,9 @@ class App extends Component {
     this.defCelular = this.defCelular.bind(this);
     this.defLinkedin = this.defLinkedin.bind(this);
 
+    // objetivo
+    this.defObjetivo = this.defObjetivo.bind(this);
+
     // formacao
     this.novaFormacao = this.novaFormacao.bind(this);
     this.apagarFormacao = this.apagarFormacao.bind(this);
@@ -47,6 +50,9 @@ class App extends Component {
   defEmail = (e) => this.setState({ email: e.target.value });
   defCelular = (e) => this.setState({ celular: e.target.value });
   defLinkedin = (e) => this.setState({ linkedin: e.target.value });
+
+  // state de objetivo
+  defObjetivo = (e) => this.setState({ objetivo: e.target.value });
 
   // states de formação
   novaFormacao = (formacao) =>
@@ -129,6 +135,7 @@ class App extends Component {
               funcFormacao={funcFormacao}
               funcExperiencia={funcExperiencia}
               funcHabilidade={funcHabilidade}
+              defObjetivo={this.defObjetivo}
             />
           </section>
           <Curriculo states={this.state} />
