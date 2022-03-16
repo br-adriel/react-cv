@@ -16,6 +16,7 @@ class FormHabilidade extends Component {
       };
       novaHabilidade(habilidade);
       e.target.reset();
+      e.target.habilidade.focus();
     };
     return (
       <>

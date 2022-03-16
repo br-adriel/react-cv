@@ -17,6 +17,7 @@ class FormFormacao extends Component {
       };
       novaFormacao(formacao);
       e.target.reset();
+      e.target.curso.focus();
     };
     return (
       <>

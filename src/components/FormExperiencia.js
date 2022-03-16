@@ -21,6 +21,7 @@ class FormExperiencia extends Component {
       };
       novaExperiencia(experiencia);
       e.target.reset();
+      e.target.cargo.focus();
     };
     return (
       <>
