@@ -6,14 +6,14 @@
   .curriculo {
     display: grid;
     grid-template: repeat(3, auto) / repeat(2, auto);
-    row-gap: 1.5cm;
+    row-gap: 1.3cm;
     column-gap: 1cm;
     width: 100%;
   }
 
   .curriculo h2 {
     display: flex;
-    gap: 0.1cm;
+    gap: 0.12cm;
     font-size: 16pt;
     align-items: center;
   }
