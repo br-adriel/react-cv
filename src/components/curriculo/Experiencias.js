@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons';
-// import '../../styles/curriculo/Experiencia.css';
 
 class Experiencias extends Component {
   render() {

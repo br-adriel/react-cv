@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/curriculo/FormacaoAcademica.css';
 
 class FormacaoAcademica extends Component {
   render() {
