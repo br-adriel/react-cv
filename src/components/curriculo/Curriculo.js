@@ -4,6 +4,7 @@ import Contato from './Contato';
 import Experiencias from './Experiencias';
 import FormacaoAcademica from './FormacaoAcademica';
 import Habilidades from './Habilidades';
+import Objetivo from './Objetivo';
 
 class Curriculo extends Component {
   render() {
@@ -11,6 +12,7 @@ class Curriculo extends Component {
     return (
       <div className='curriculo'>
         <Contato states={states} />
+        {states.objetivo !== '' ? <Objetivo states={states} /> : null}
         {states.formacoes.length > 0 ? (
           <FormacaoAcademica states={states} />
         ) : null}
