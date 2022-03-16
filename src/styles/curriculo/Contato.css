@@ -5,13 +5,13 @@
 }
 
 .contato h2 {
-  font-size: 22pt;
+  font-size: 28pt;
 }
 
 .contato p {
   font-size: 12pt;
   display: flex;
-  gap: 0.2cm;
+  gap: 0.1cm;
   align-items: center;
 }
 
