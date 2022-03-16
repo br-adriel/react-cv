@@ -1,0 +1,19 @@
+.formacaoAcademica {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2cm;
+}
+
+.formacaoAcademica h2 {
+  display: flex;
+  gap: 0.1cm;
+  font-size: 16pt;
+}
+
+.formacaoAcademica .formacao h3 {
+  font-size: 12pt;
+}
+
+.formacaoAcademica .formacao p {
+  font-size: 8pt;
+}
