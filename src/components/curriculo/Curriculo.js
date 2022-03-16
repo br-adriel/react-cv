@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import '../../styles/curriculo/Curriculo.css';
 import Contato from './Contato';
+import FormacaoAcademica from './FormacaoAcademica';
 
 class Curriculo extends Component {
   render() {
@@ -8,6 +9,7 @@ class Curriculo extends Component {
     return (
       <div className='curriculo'>
         <Contato states={states} />
+        <FormacaoAcademica states={states} />
       </div>
     );
   }
