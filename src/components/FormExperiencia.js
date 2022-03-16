@@ -97,14 +97,14 @@ class FormExperiencia extends Component {
             <button type='submit' className='mr-auto'>
               Adicionar
             </button>
-            <button onClick={() => mudarForm('formacao')}>
+            <button type='button' onClick={() => mudarForm('formacao')}>
               <FontAwesomeIcon
                 icon={faArrowLeft}
                 alt='Seta para a esquerda'
                 title='Anterior'
               />
             </button>
-            <button onClick={() => mudarForm('habilidade')}>
+            <button type='button' onClick={() => mudarForm('habilidade')}>
               <FontAwesomeIcon
                 icon={faArrowRight}
                 alt='Seta para a direita'

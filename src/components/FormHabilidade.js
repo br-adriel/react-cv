@@ -43,14 +43,14 @@ class FormHabilidade extends Component {
             <button type='submit' className='mr-auto'>
               Adicionar
             </button>
-            <button onClick={() => mudarForm('experiencia')}>
+            <button type='button' onClick={() => mudarForm('experiencia')}>
               <FontAwesomeIcon
                 icon={faArrowLeft}
                 alt='Seta para a esquerda'
                 title='Anterior'
               />
             </button>
-            <button onClick={() => window.print()}>
+            <button type='button' onClick={() => window.print()}>
               <FontAwesomeIcon
                 icon={faPrint}
                 alt='Impressora'

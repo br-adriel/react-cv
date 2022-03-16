@@ -63,14 +63,14 @@ class FormFormacao extends Component {
             <button type='submit' className='mr-auto'>
               Adicionar
             </button>
-            <button onClick={() => mudarForm('contato')}>
+            <button  type="button" onClick={() => mudarForm('contato')}>
               <FontAwesomeIcon
                 icon={faArrowLeft}
                 alt='Seta para a esquerda'
                 title='Anterior'
               />
             </button>
-            <button onClick={() => mudarForm('experiencia')}>
+            <button type="button" onClick={() => mudarForm('experiencia')}>
               <FontAwesomeIcon
                 icon={faArrowRight}
                 alt='Seta para a direita'
