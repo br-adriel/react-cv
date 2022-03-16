@@ -9,7 +9,7 @@ class FormContato extends Component {
     return (
       <>
         <h2>Informações de contato</h2>
-        <form action='' onSubmit={() => mudarForm('formacao')}>
+        <form action='' onSubmit={() => mudarForm('objetivo')}>
           <FormField
             id='nome'
             label='Nome completo:'
