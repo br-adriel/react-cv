@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/curriculo/FormacaoAcademica.css';
 
 class FormacaoAcademica extends Component {
@@ -6,7 +8,10 @@ class FormacaoAcademica extends Component {
     const { formacoes } = this.props.states;
     return (
       <div className='formacaoAcademica'>
-        <h2>Formação acadêmica</h2>
+        <h2>
+          <FontAwesomeIcon icon={faGraduationCap} />
+          Formação acadêmica
+        </h2>
         {[...formacoes].reverse().map((formacao) => {
           return (
             <div className='formacao' key={formacao.id}>
