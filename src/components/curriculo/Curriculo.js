@@ -3,6 +3,7 @@ import '../../styles/curriculo/Curriculo.css';
 import Contato from './Contato';
 import Experiencias from './Experiencias';
 import FormacaoAcademica from './FormacaoAcademica';
+import Habilidades from './Habilidades';
 
 class Curriculo extends Component {
   render() {
@@ -16,6 +17,7 @@ class Curriculo extends Component {
         {states.experiencias.length > 0 ? (
           <Experiencias states={states} />
         ) : null}
+        {states.habilidades.length > 0 ? <Habilidades states={states} /> : null}
       </div>
     );
   }
