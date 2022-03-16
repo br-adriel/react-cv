@@ -8,6 +8,7 @@
   display: flex;
   gap: 0.1cm;
   font-size: 16pt;
+  align-items: center;
 }
 
 .formacaoAcademica .formacao h3 {
