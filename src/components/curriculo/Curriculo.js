@@ -10,8 +10,12 @@ class Curriculo extends Component {
     return (
       <div className='curriculo'>
         <Contato states={states} />
-        <FormacaoAcademica states={states} />
-        <Experiencias states={states} />
+        {states.formacoes.length > 0 ? (
+          <FormacaoAcademica states={states} />
+        ) : null}
+        {states.experiencias.length > 0 ? (
+          <Experiencias states={states} />
+        ) : null}
       </div>
     );
   }
