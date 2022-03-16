@@ -1,0 +1,11 @@
+.habilidades {
+  grid-column: span 2;
+}
+
+.habilidades > div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1cm;
+  row-gap: 0.1cm;
+}

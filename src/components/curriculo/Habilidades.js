@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import '../../styles/curriculo/Habilidades.css';
 
 class Habilidades extends Component {
   render() {
@@ -11,14 +12,16 @@ class Habilidades extends Component {
           <FontAwesomeIcon icon={faLightbulb} />
           Habilidades
         </h2>
-        {habilidades.map((habilidade) => {
-          return (
-            <div className='habilidade' key={habilidade.id}>
-              <h3>{habilidade.habilidade}</h3>
-              <p>{habilidade.nivel}</p>
-            </div>
-          );
-        })}
+        <div>
+          {habilidades.map((habilidade) => {
+            return (
+              <div className='habilidade' key={habilidade.id}>
+                <h3>{habilidade.habilidade}</h3>
+                <p>{habilidade.nivel}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
