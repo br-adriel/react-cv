@@ -7,11 +7,13 @@ import FormExperiencia from './FormExperiencia';
 import Experiencias from './Experiencias';
 import FormHabilidade from './FormHabilidade';
 import Habilidades from './Habilidades';
+import FormObjetivo from './FormObjetivo';
 
 class Formulario extends Component {
   render() {
     const {
       defContatos,
+      defObjetivo,
       funcFormacao,
       funcExperiencia,
       funcHabilidade,
@@ -26,6 +28,17 @@ class Formulario extends Component {
           defContatos={defContatos}
           states={states}
           mudarForm={mudarForm}
+        />
+      </Card>
+    );
+
+    // objetivo
+    const formObjetivo = (
+      <Card>
+        <FormObjetivo
+          mudarForm={mudarForm}
+          objetivo={states.objetivo}
+          defObjetivo={defObjetivo}
         />
       </Card>
     );
@@ -76,6 +89,8 @@ class Formulario extends Component {
     );
 
     switch (states.formAtual) {
+      case 'objetivo':
+        return formObjetivo;
       case 'formacao':
         return (
           <>
