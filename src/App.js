@@ -13,6 +13,7 @@ class App extends Component {
       celular: '',
       email: '',
       linkedin: '',
+      objetivo: '',
       formAtual: 'contato',
       formacoes: [],
       experiencias: [],
