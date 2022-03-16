@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-// import '../../styles/curriculo/Objetivo.css';
+import '../../styles/curriculo/Objetivo.css';
 
 class Objetivo extends Component {
   render() {
