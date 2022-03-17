@@ -20,12 +20,22 @@ class CadastroFormacoes extends Component {
     this.defFim = this.defFim.bind(this);
 
     this.btnAtualizar = this.btnAtualizar.bind(this);
+    this.limparForm = this.limparForm.bind(this);
   }
 
   defCurso = (e) => this.setState({ curso: e.target.value });
   defInstituicao = (e) => this.setState({ instituicao: e.target.value });
   defInicio = (e) => this.setState({ inicio: e.target.value });
   defFim = (e) => this.setState({ fim: e.target.value });
+
+  limparForm = () =>
+    this.setState({
+      codigo: '',
+      curso: '',
+      instituicao: '',
+      inicio: '',
+      fim: '',
+    });
 
   btnAtualizar = (codigo) => {
     const formacao = this.props.states.formacoes.filter(
@@ -56,6 +66,7 @@ class CadastroFormacoes extends Component {
             novaFormacao={funcFormacao.nova}
             states={this.state}
             defFormacao={defFormacao}
+            limparForm={this.limparForm}
           />
         </Card>
         <Formacoes

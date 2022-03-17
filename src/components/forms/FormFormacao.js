@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 class FormFormacao extends Component {
   render() {
-    const { mudarForm, novaFormacao, states, defFormacao } = this.props;
+    const { mudarForm, novaFormacao, states, defFormacao, limparForm } =
+      this.props;
     const submitForm = (e) => {
       e.preventDefault();
       const formacao = {
@@ -16,7 +17,7 @@ class FormFormacao extends Component {
         fim: e.target.fimCurso.value,
       };
       novaFormacao(formacao);
-      e.target.reset();
+      limparForm();
       e.target.curso.focus();
     };
     return (
