@@ -20,7 +20,7 @@ class CadastroHabilidades extends Component {
     this.btnAtualizar = this.btnAtualizar.bind(this);
   }
 
-  defHabilidade = (e) => this.setState({ habilidae: e.target.value });
+  defHabilidade = (e) => this.setState({ habilidade: e.target.value });
   defNivel = (e) => this.setState({ nivel: e.target.value });
 
   limparForm = () =>
