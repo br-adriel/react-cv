@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 class FormFormacao extends Component {
   render() {
-    const { mudarForm, novaFormacao } = this.props;
+    const { mudarForm, novaFormacao, states, defFormacao } = this.props;
     const submitForm = (e) => {
       e.preventDefault();
       const formacao = {
@@ -31,6 +31,8 @@ class FormFormacao extends Component {
               minLength: 3,
               name: 'curso',
             }}
+            iptValue={states.curso}
+            iptChange={defFormacao.curso}
           />
           <FormField
             id='instituicao'
@@ -40,6 +42,8 @@ class FormFormacao extends Component {
               minLength: 3,
               name: 'instituicao',
             }}
+            iptValue={states.instituicao}
+            iptChange={defFormacao.instituicao}
           />
           <FormField
             id='inicio-curso'
@@ -50,6 +54,8 @@ class FormFormacao extends Component {
               min: 1900,
               max: new Date().getFullYear(),
             }}
+            iptValue={states.inicio}
+            iptChange={defFormacao.inicio}
           />
           <FormField
             id='fim-curso'
@@ -59,6 +65,8 @@ class FormFormacao extends Component {
               name: 'fimCurso',
               min: 1900,
             }}
+            iptValue={states.fim}
+            iptChange={defFormacao.fim}
           />
           <div className='botoes'>
             <button type='submit' className='mr-auto'>

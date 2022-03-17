@@ -4,7 +4,7 @@ import '../styles/Formacoes.css';
 
 class Formacoes extends Component {
   render() {
-    const { formacoes, apagarFormacao } = this.props;
+    const { formacoes, apagarFormacao, editarFormacao } = this.props;
     return (
       <div className='formacoes cards'>
         {formacoes.map((formacao) => {
@@ -13,6 +13,7 @@ class Formacoes extends Component {
               key={formacao.id}
               formacao={formacao}
               apagarFormacao={apagarFormacao}
+              editarFormacao={editarFormacao}
             />
           );
         })}
