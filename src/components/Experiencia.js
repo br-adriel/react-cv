@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import Card from './Card';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import uniquid from 'uniqid';
 
@@ -20,7 +20,7 @@ class Experiencia extends Component {
       'Nov',
       'Dez',
     ];
-    const { experiencia, apagarExperiencia } = this.props;
+    const { experiencia, apagarExperiencia, editarExperiencia } = this.props;
     return (
       <Card>
         <h3>{experiencia.cargo}</h3>
@@ -36,9 +36,12 @@ class Experiencia extends Component {
         </ul>
         <div className='botoes'>
           <button
-            onClick={() => apagarExperiencia(experiencia.id)}
+            onClick={() => editarExperiencia(experiencia.id)}
             className='ml-auto'
           >
+            <FontAwesomeIcon icon={faPen} alt='Ícone de lápis' title='Editar' />
+          </button>
+          <button onClick={() => apagarExperiencia(experiencia.id)}>
             <FontAwesomeIcon
               icon={faTrashCan}
               alt='Ícone de lixeira'

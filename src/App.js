@@ -87,6 +87,23 @@ class App extends Component {
   // states de experiencias
   novaExperiencia = (experiencia) =>
     this.setState((ant) => {
+      const novasExperiencias = [...ant.experiencias];
+      let edicao = false;
+      novasExperiencias.forEach((e) => {
+        if (e.id === experiencia.id) {
+          e.cargo = experiencia.cargo;
+          e.empresa = experiencia.empresa;
+          e.mesInicio = experiencia.mesInicio;
+          e.anoInicio = experiencia.anoInicio;
+          e.mesFim = experiencia.mesFim;
+          e.anoFim = experiencia.anoFim;
+          e.tarefas = experiencia.tarefas;
+          edicao = true;
+        }
+      });
+      if (edicao) {
+        return novasExperiencias;
+      }
       return {
         experiencias: [...ant.experiencias, experiencia],
       };

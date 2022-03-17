@@ -3,7 +3,7 @@ import Experiencia from './Experiencia';
 
 class Experiencias extends Component {
   render() {
-    const { experiencias, apagarExperiencia } = this.props;
+    const { experiencias, apagarExperiencia, editarExperiencia } = this.props;
     return (
       <div className='cards'>
         {experiencias.map((experiencia) => {
@@ -12,6 +12,7 @@ class Experiencias extends Component {
               key={experiencia.id}
               experiencia={experiencia}
               apagarExperiencia={apagarExperiencia}
+              editarExperiencia={editarExperiencia}
             />
           );
         })}
