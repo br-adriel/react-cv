@@ -1,11 +1,10 @@
 import { Component } from 'react';
 import Card from './Card';
 import FormContato from './forms/FormContato';
-import FormHabilidade from './forms/FormHabilidade';
-import Habilidades from './Habilidades';
 import FormObjetivo from './forms/FormObjetivo';
 import CadastroFormacoes from './CadastroFormacoes';
 import CadastroExperiencias from './CadastroExperiencias';
+import CadastroHabilidades from './CadastroHabilidades';
 
 class Formulario extends Component {
   render() {
@@ -41,22 +40,6 @@ class Formulario extends Component {
       </Card>
     );
 
-    // habilidades
-    const formHabilidade = (
-      <Card>
-        <FormHabilidade
-          mudarForm={mudarForm}
-          novaHabilidade={funcHabilidade.nova}
-        />
-      </Card>
-    );
-    const cardsHabilidade = (
-      <Habilidades
-        habilidades={states.habilidades}
-        apagarHabilidade={funcHabilidade.apagar}
-      />
-    );
-
     switch (states.formAtual) {
       case 'objetivo':
         return formObjetivo;
@@ -78,10 +61,11 @@ class Formulario extends Component {
         );
       case 'habilidade':
         return (
-          <>
-            {formHabilidade}
-            {cardsHabilidade}
-          </>
+          <CadastroHabilidades
+            mudarForm={mudarForm}
+            funcHabilidade={funcHabilidade}
+            states={states}
+          />
         );
       default:
         return formContato;
