@@ -72,7 +72,7 @@ class FormFormacao extends Component {
           />
           <div className='botoes'>
             <button type='submit' className='mr-auto'>
-              Adicionar
+              {states.textoBotao}
             </button>
             <button type='button' onClick={() => mudarForm('objetivo')}>
               <FontAwesomeIcon

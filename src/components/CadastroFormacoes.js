@@ -12,6 +12,7 @@ class CadastroFormacoes extends Component {
       instituicao: '',
       inicio: '',
       fim: '',
+      textoBotao: 'Adicionar',
     };
 
     this.defCurso = this.defCurso.bind(this);
@@ -35,6 +36,7 @@ class CadastroFormacoes extends Component {
       instituicao: '',
       inicio: '',
       fim: '',
+      textoBotao: 'Adicionar',
     });
 
   btnAtualizar = (codigo) => {
@@ -47,6 +49,7 @@ class CadastroFormacoes extends Component {
       instituicao: formacao.instituicao,
       inicio: formacao.inicio,
       fim: formacao.fim,
+      textoBotao: 'Atualizar',
     });
   };
 
