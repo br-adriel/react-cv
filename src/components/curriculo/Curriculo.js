@@ -13,13 +13,13 @@ class Curriculo extends Component {
       <div className='curriculo'>
         <Contato states={states} />
         {states.objetivo !== '' ? <Objetivo states={states} /> : null}
+        {states.habilidades.length > 0 ? <Habilidades states={states} /> : null}
         {states.formacoes.length > 0 ? (
           <FormacaoAcademica states={states} />
         ) : null}
         {states.experiencias.length > 0 ? (
           <Experiencias states={states} />
         ) : null}
-        {states.habilidades.length > 0 ? <Habilidades states={states} /> : null}
       </div>
     );
   }
