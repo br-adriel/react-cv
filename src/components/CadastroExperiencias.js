@@ -18,6 +18,14 @@ class CadastroExperiencias extends Component {
       textoBotao: 'Adicionar',
     };
 
+    this.defCargo = this.defCargo.bind(this);
+    this.defEmpresa = this.defEmpresa.bind(this);
+    this.defMesInicio = this.defMesInicio.bind(this);
+    this.defAnoInicio = this.defAnoInicio.bind(this);
+    this.defMesFim = this.defMesFim.bind(this);
+    this.defAnoFim = this.defAnoFim.bind(this);
+    this.defTarefas = this.defTarefas.bind(this);
+
     this.btnAtualizar = this.btnAtualizar.bind(this);
     this.limparForm = this.limparForm.bind(this);
   }
@@ -39,6 +47,14 @@ class CadastroExperiencias extends Component {
     });
   };
 
+  defCargo = (e) => this.setState({ cargo: e.target.value });
+  defEmpresa = (e) => this.setState({ empresa: e.target.value });
+  defMesInicio = (e) => this.setState({ mesInicio: e.target.value });
+  defAnoInicio = (e) => this.setState({ anoInicio: e.target.value });
+  defMesFim = (e) => this.setState({ mesFim: e.target.value });
+  defAnoFim = (e) => this.setState({ anoFim: e.target.value });
+  defTarefas = (e) => this.setState({ tarefas: e.target.value });
+
   limparForm = () => {
     this.setState({
       codigo: '',
@@ -55,6 +71,15 @@ class CadastroExperiencias extends Component {
 
   render() {
     const { mudarForm, funcExperiencia, states } = this.props;
+    const defExperiencia = {
+      cargo: this.defCargo,
+      empresa: this.defEmpresa,
+      mesInicio: this.defMesInicio,
+      anoInicio: this.defAnoInicio,
+      mesFim: this.defMesFim,
+      anoFim: this.defAnoFim,
+      tarefas: this.defTarefas,
+    };
     return (
       <>
         <Card>
@@ -63,6 +88,7 @@ class CadastroExperiencias extends Component {
             novaExperiencia={funcExperiencia.nova}
             states={this.state}
             limparForm={this.limparForm}
+            defExperiencia={defExperiencia}
           />
         </Card>
         <Experiencias
