@@ -6,22 +6,24 @@ import { faArrowLeft, faPrint } from '@fortawesome/free-solid-svg-icons';
 
 class FormHabilidade extends Component {
   render() {
-    const { mudarForm, novaHabilidade } = this.props;
+    const { mudarForm, novaHabilidade, states, limparForm, defHabilidade } =
+      this.props;
     const submitForm = (e) => {
       e.preventDefault();
       const habilidade = {
-        id: uniqid(),
+        id: e.target.codigo.value === '' ? uniqid() : e.target.codigo.value,
         habilidade: e.target.habilidade.value,
         nivel: e.target.nivel.value,
       };
       novaHabilidade(habilidade);
-      e.target.reset();
+      limparForm();
       e.target.habilidade.focus();
     };
     return (
       <>
         <h2>Habilidades</h2>
         <form action='' onSubmit={(e) => submitForm(e)}>
+          <input type='hidden' name='codigo' value={states.codigo} />
           <FormField
             id='habilidade'
             label='Habilidade:'
@@ -30,6 +32,8 @@ class FormHabilidade extends Component {
               minLength: 3,
               name: 'habilidade',
             }}
+            iptValue={states.habilidade}
+            iptChange={defHabilidade.habilidade}
           />
           <FormField
             id='nivel'
@@ -39,10 +43,12 @@ class FormHabilidade extends Component {
               minLength: 3,
               name: 'nivel',
             }}
+            iptValue={states.nivel}
+            iptChange={defHabilidade.nivel}
           />
           <div className='botoes'>
             <button type='submit' className='mr-auto'>
-              Adicionar
+              {states.textoBotao}
             </button>
             <button type='button' onClick={() => mudarForm('experiencia')}>
               <FontAwesomeIcon
