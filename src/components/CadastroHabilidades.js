@@ -4,6 +4,15 @@ import Habilidades from './Habilidades';
 import Card from './Card';
 
 class CadastroHabilidades extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      codigo: '',
+      habilidade: '',
+      nivel: '',
+      textoBotao: 'Adicionar',
+    };
+  }
   render() {
     const { mudarForm, funcHabilidade, states } = this.props;
     return (
@@ -12,6 +21,7 @@ class CadastroHabilidades extends Component {
           <FormHabilidade
             mudarForm={mudarForm}
             novaHabilidade={funcHabilidade.nova}
+            states={this.state}
           />
         </Card>
         <Habilidades
