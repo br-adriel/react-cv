@@ -3,7 +3,7 @@ import Habilidade from './Habilidade';
 
 class Habilidades extends Component {
   render() {
-    const { habilidades, apagarHabilidade } = this.props;
+    const { habilidades, apagarHabilidade, editarHabilidade } = this.props;
     return (
       <div className='cards'>
         {habilidades.map((habilidade) => {
@@ -12,6 +12,7 @@ class Habilidades extends Component {
               key={habilidade.id}
               habilidade={habilidade}
               apagarHabilidade={apagarHabilidade}
+              editarHabilidade={editarHabilidade}
             />
           );
         })}

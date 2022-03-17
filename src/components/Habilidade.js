@@ -1,20 +1,23 @@
 import { Component } from 'react';
 import Card from './Card';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Habilidade extends Component {
   render() {
-    const { habilidade, apagarHabilidade } = this.props;
+    const { habilidade, apagarHabilidade, editarHabilidade } = this.props;
     return (
       <Card>
         <h3>{habilidade.habilidade}</h3>
         <p>{habilidade.nivel}</p>
         <div className='botoes'>
           <button
-            onClick={() => apagarHabilidade(habilidade.id)}
+            onClick={() => editarHabilidade(habilidade.id)}
             className='ml-auto'
           >
+            <FontAwesomeIcon icon={faPen} alt='Ícone de lápis' title='Editar' />
+          </button>
+          <button onClick={() => apagarHabilidade(habilidade.id)}>
             <FontAwesomeIcon
               icon={faTrashCan}
               alt='Ícone de lixeira'
