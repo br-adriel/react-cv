@@ -19,6 +19,7 @@ class CadastroExperiencias extends Component {
     };
 
     this.btnAtualizar = this.btnAtualizar.bind(this);
+    this.limparForm = this.limparForm.bind(this);
   }
 
   btnAtualizar = (codigo) => {
@@ -38,6 +39,20 @@ class CadastroExperiencias extends Component {
     });
   };
 
+  limparForm = () => {
+    this.setState({
+      codigo: '',
+      cargo: '',
+      empresa: '',
+      mesInicio: '',
+      anoInicio: '',
+      mesFim: '',
+      anoFim: '',
+      tarefas: '',
+      textoBotao: 'Adicionar',
+    });
+  };
+
   render() {
     const { mudarForm, funcExperiencia, states } = this.props;
     return (
@@ -47,12 +62,13 @@ class CadastroExperiencias extends Component {
             mudarForm={mudarForm}
             novaExperiencia={funcExperiencia.nova}
             states={this.state}
-            btnAtualizar={this.btnAtualizar}
+            limparForm={this.limparForm}
           />
         </Card>
         <Experiencias
           experiencias={states.experiencias}
           apagarExperiencia={funcExperiencia.apagar}
+          editarExperiencia={this.btnAtualizar}
         />
       </>
     );
