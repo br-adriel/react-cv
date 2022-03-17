@@ -119,6 +119,18 @@ class App extends Component {
   // states de habilidades
   novaHabilidade = (habilidade) =>
     this.setState((ant) => {
+      const novasHabilidades = [...ant.habilidades];
+      let edicao = false;
+      novasHabilidades.forEach((h) => {
+        if (h.id === habilidade.id) {
+          h.habilidade = habilidade.habilidade;
+          h.nivel = habilidade.nivel;
+          edicao = true;
+        }
+      });
+      if (edicao) {
+        return novasHabilidades;
+      }
       return {
         habilidades: [...ant.habilidades, habilidade],
       };
