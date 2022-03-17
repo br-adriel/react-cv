@@ -1,13 +1,12 @@
 import { Component } from 'react';
 import Card from './Card';
 import FormContato from './forms/FormContato';
-import FormFormacao from './forms/FormFormacao';
-import Formacoes from './Formacoes';
 import FormExperiencia from './forms/FormExperiencia';
 import Experiencias from './Experiencias';
 import FormHabilidade from './forms/FormHabilidade';
 import Habilidades from './Habilidades';
 import FormObjetivo from './forms/FormObjetivo';
+import CadastroFormacoes from './CadastroFormacoes';
 
 class Formulario extends Component {
   render() {
@@ -41,19 +40,6 @@ class Formulario extends Component {
           defObjetivo={defObjetivo}
         />
       </Card>
-    );
-
-    // formacao academica
-    const formFormacao = (
-      <Card>
-        <FormFormacao mudarForm={mudarForm} novaFormacao={funcFormacao.nova} />
-      </Card>
-    );
-    const cardsFormacao = (
-      <Formacoes
-        formacoes={states.formacoes}
-        apagarFormacao={funcFormacao.apagar}
-      />
     );
 
     // experiencia profissional
@@ -93,10 +79,11 @@ class Formulario extends Component {
         return formObjetivo;
       case 'formacao':
         return (
-          <>
-            {formFormacao}
-            {cardsFormacao}
-          </>
+          <CadastroFormacoes
+            mudarForm={mudarForm}
+            states={states}
+            funcFormacao={funcFormacao}
+          />
         );
       case 'experiencia':
         return (
