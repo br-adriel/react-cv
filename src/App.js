@@ -55,12 +55,27 @@ class App extends Component {
   defObjetivo = (e) => this.setState({ objetivo: e.target.value });
 
   // states de formação
-  novaFormacao = (formacao) =>
+  novaFormacao = (formacao) => {
     this.setState((ant) => {
+      const novasFormacoes = [...ant.formacoes];
+      let edicao = false;
+      novasFormacoes.forEach((f) => {
+        if (f.id === formacao.id) {
+          f.curso = formacao.curso;
+          f.instituicao = formacao.instituicao;
+          f.inicio = formacao.inicio;
+          f.fim = formacao.fim;
+          edicao = true;
+        }
+      });
+      if (edicao) {
+        return novasFormacoes;
+      }
       return {
         formacoes: [...ant.formacoes, formacao],
       };
     });
+  };
 
   apagarFormacao = (id) =>
     this.setState((ant) => {

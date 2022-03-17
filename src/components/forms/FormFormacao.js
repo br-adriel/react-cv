@@ -10,7 +10,7 @@ class FormFormacao extends Component {
     const submitForm = (e) => {
       e.preventDefault();
       const formacao = {
-        id: uniqid(),
+        id: e.target.codigo.value === '' ? uniqid() : e.target.codigo.value,
         curso: e.target.curso.value,
         instituicao: e.target.instituicao.value,
         inicio: e.target.inicioCurso.value,
@@ -24,6 +24,7 @@ class FormFormacao extends Component {
       <>
         <h2>Formação acadêmica</h2>
         <form action='' onSubmit={(e) => submitForm(e)}>
+          <input type='hidden' name='codigo' value={states.codigo} />
           <FormField
             id='curso'
             label='Curso:'
