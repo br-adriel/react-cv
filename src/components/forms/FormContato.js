@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import FormField from './FormField';
+import FormField from '../FormField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 

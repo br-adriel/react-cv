@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import Card from './Card';
-import FormContato from './FormContato';
-import FormFormacao from './FormFormacao';
+import FormContato from './forms/FormContato';
+import FormFormacao from './forms/FormFormacao';
 import Formacoes from './Formacoes';
-import FormExperiencia from './FormExperiencia';
+import FormExperiencia from './forms/FormExperiencia';
 import Experiencias from './Experiencias';
-import FormHabilidade from './FormHabilidade';
+import FormHabilidade from './forms/FormHabilidade';
 import Habilidades from './Habilidades';
-import FormObjetivo from './FormObjetivo';
+import FormObjetivo from './forms/FormObjetivo';
 
 class Formulario extends Component {
   render() {
