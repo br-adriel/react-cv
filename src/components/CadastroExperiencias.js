@@ -17,7 +17,26 @@ class CadastroExperiencias extends Component {
       tarefas: '',
       textoBotao: 'Adicionar',
     };
+
+    this.btnAtualizar = this.btnAtualizar.bind(this);
   }
+
+  btnAtualizar = (codigo) => {
+    const experiencia = this.props.states.experiencias.filter(
+      (f) => f.id === codigo
+    )[0];
+    this.setState({
+      codigo: experiencia.id,
+      cargo: experiencia.cargo,
+      empresa: experiencia.empresa,
+      mesInicio: experiencia.mesInicio,
+      anoInicio: experiencia.anoInicio,
+      mesFim: experiencia.mesFim,
+      anoFim: experiencia.anoFim,
+      tarefas: experiencia.tarefas.join('. '),
+      textoBotao: 'Atualizar',
+    });
+  };
 
   render() {
     const { mudarForm, funcExperiencia, states } = this.props;
@@ -28,6 +47,7 @@ class CadastroExperiencias extends Component {
             mudarForm={mudarForm}
             novaExperiencia={funcExperiencia.nova}
             states={this.state}
+            btnAtualizar={this.btnAtualizar}
           />
         </Card>
         <Experiencias
