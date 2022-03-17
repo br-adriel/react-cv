@@ -4,6 +4,21 @@ import Experiencias from './Experiencias';
 import FormExperiencia from './forms/FormExperiencia';
 
 class CadastroExperiencias extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      codigo: '',
+      cargo: '',
+      empresa: '',
+      mesInicio: '',
+      anoInicio: '',
+      mesFim: '',
+      anoFim: '',
+      tarefas: '',
+      textoBotao: 'Adicionar',
+    };
+  }
+
   render() {
     const { mudarForm, funcExperiencia, states } = this.props;
     return (
@@ -12,6 +27,7 @@ class CadastroExperiencias extends Component {
           <FormExperiencia
             mudarForm={mudarForm}
             novaExperiencia={funcExperiencia.nova}
+            states={this.state}
           />
         </Card>
         <Experiencias
