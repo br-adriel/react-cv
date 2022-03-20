@@ -1,104 +1,88 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import Card from './Card';
 import Experiencias from './Experiencias';
 import FormExperiencia from './forms/FormExperiencia';
 
-class CadastroExperiencias extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      codigo: '',
-      cargo: '',
-      empresa: '',
-      mesInicio: '',
-      anoInicio: '',
-      mesFim: '',
-      anoFim: '',
-      tarefas: '',
-      textoBotao: 'Adicionar',
-    };
+const CadastroExperiencias = (props) => {
+  const [codigo, setCodigo] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [empresa, setEmpresa] = useState('');
+  const [mesInicio, setMesInicio] = useState('');
+  const [anoInicio, setAnoInicio] = useState('');
+  const [mesFim, setMesFim] = useState('');
+  const [anoFim, setAnoFim] = useState('');
+  const [tarefas, setTarefas] = useState('');
+  const [textoBotao, setTextoBotao] = useState('Adicionar');
 
-    this.defCargo = this.defCargo.bind(this);
-    this.defEmpresa = this.defEmpresa.bind(this);
-    this.defMesInicio = this.defMesInicio.bind(this);
-    this.defAnoInicio = this.defAnoInicio.bind(this);
-    this.defMesFim = this.defMesFim.bind(this);
-    this.defAnoFim = this.defAnoFim.bind(this);
-    this.defTarefas = this.defTarefas.bind(this);
+  const componentStates = {
+    codigo,
+    cargo,
+    empresa,
+    mesInicio,
+    anoInicio,
+    mesFim,
+    anoFim,
+    tarefas,
+    textoBotao,
+  };
 
-    this.btnAtualizar = this.btnAtualizar.bind(this);
-    this.limparForm = this.limparForm.bind(this);
-  }
-
-  btnAtualizar = (codigo) => {
+  const btnAtualizar = (codigo) => {
     const experiencia = this.props.states.experiencias.filter(
       (f) => f.id === codigo
     )[0];
-    this.setState({
-      codigo: experiencia.id,
-      cargo: experiencia.cargo,
-      empresa: experiencia.empresa,
-      mesInicio: experiencia.mesInicio,
-      anoInicio: experiencia.anoInicio,
-      mesFim: experiencia.mesFim,
-      anoFim: experiencia.anoFim,
-      tarefas: experiencia.tarefas.join('. '),
-      textoBotao: 'Atualizar',
-    });
+    setCodigo(experiencia.id);
+    setCargo(experiencia.cargo);
+    setEmpresa(experiencia.empresa);
+    setMesInicio(experiencia.mesInicio);
+    setAnoInicio(experiencia.anoInicio);
+    setMesFim(experiencia.mesFim);
+    setAnoFim(experiencia.anoFim);
+    setTarefas(experiencia.tarefas.join('. '));
+    setTextoBotao('Atualizar');
   };
 
-  defCargo = (e) => this.setState({ cargo: e.target.value });
-  defEmpresa = (e) => this.setState({ empresa: e.target.value });
-  defMesInicio = (e) => this.setState({ mesInicio: e.target.value });
-  defAnoInicio = (e) => this.setState({ anoInicio: e.target.value });
-  defMesFim = (e) => this.setState({ mesFim: e.target.value });
-  defAnoFim = (e) => this.setState({ anoFim: e.target.value });
-  defTarefas = (e) => this.setState({ tarefas: e.target.value });
-
-  limparForm = () => {
-    this.setState({
-      codigo: '',
-      cargo: '',
-      empresa: '',
-      mesInicio: '',
-      anoInicio: '',
-      mesFim: '',
-      anoFim: '',
-      tarefas: '',
-      textoBotao: 'Adicionar',
-    });
+  const defExperiencia = {
+    cargo: (e) => setCargo(e.target.value),
+    empresa: (e) => setEmpresa(e.target.value),
+    mesInicio: (e) => setMesInicio(e.target.value),
+    anoInicio: (e) => setAnoInicio(e.target.value),
+    mesFim: (e) => setMesFim(e.target.value),
+    anoFim: (e) => setAnoFim(e.target.value),
+    tarefas: (e) => setTarefas(e.target.value),
   };
 
-  render() {
-    const { mudarForm, funcExperiencia, states } = this.props;
-    const defExperiencia = {
-      cargo: this.defCargo,
-      empresa: this.defEmpresa,
-      mesInicio: this.defMesInicio,
-      anoInicio: this.defAnoInicio,
-      mesFim: this.defMesFim,
-      anoFim: this.defAnoFim,
-      tarefas: this.defTarefas,
-    };
-    return (
-      <>
-        <Card>
-          <FormExperiencia
-            mudarForm={mudarForm}
-            novaExperiencia={funcExperiencia.nova}
-            states={this.state}
-            limparForm={this.limparForm}
-            defExperiencia={defExperiencia}
-          />
-        </Card>
-        <Experiencias
-          experiencias={states.experiencias}
-          apagarExperiencia={funcExperiencia.apagar}
-          editarExperiencia={this.btnAtualizar}
+  const limparForm = () => {
+    setCodigo('');
+    setCargo('');
+    setEmpresa('');
+    setMesInicio('');
+    setAnoInicio('');
+    setMesFim('');
+    setAnoFim('');
+    setTarefas('');
+    setTextoBotao('Adicionar');
+  };
+
+  const { mudarForm, funcExperiencia, states } = props;
+
+  return (
+    <>
+      <Card>
+        <FormExperiencia
+          mudarForm={mudarForm}
+          novaExperiencia={funcExperiencia.nova}
+          states={componentStates}
+          limparForm={limparForm}
+          defExperiencia={defExperiencia}
         />
-      </>
-    );
-  }
-}
+      </Card>
+      <Experiencias
+        experiencias={states.experiencias}
+        apagarExperiencia={funcExperiencia.apagar}
+        editarExperiencia={btnAtualizar}
+      />
+    </>
+  );
+};
 
 export default CadastroExperiencias;
