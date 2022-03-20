@@ -2,62 +2,48 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
 import Formulario from './components/Formulario';
-import { Component } from 'react';
+import { useState } from 'react';
 import Curriculo from './components/curriculo/Curriculo';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nome: '',
-      celular: '',
-      email: '',
-      linkedin: '',
-      objetivo: '',
-      formAtual: 'contato',
-      formacoes: [],
-      experiencias: [],
-      habilidades: [],
-    };
+const App = () => {
+  const [nome, setNome] = useState('');
+  const [celular, setCelular] = useState('');
+  const [email, setEmail] = useState('');
+  const [linkedin, setLinkedin] = useState('');
+  const [objetivo, setObjetivo] = useState('');
+  const [formAtual, setFormAtual] = useState('contato');
+  const [formacoes, setFormacoes] = useState([]);
+  const [experiencias, setExperiencias] = useState([]);
+  const [habilidades, setHabilidades] = useState([]);
 
-    // contato
-    this.defNome = this.defNome.bind(this);
-    this.defEmail = this.defEmail.bind(this);
-    this.defCelular = this.defCelular.bind(this);
-    this.defLinkedin = this.defLinkedin.bind(this);
-
-    // objetivo
-    this.defObjetivo = this.defObjetivo.bind(this);
-
-    // formacao
-    this.novaFormacao = this.novaFormacao.bind(this);
-    this.apagarFormacao = this.apagarFormacao.bind(this);
-
-    // experiencia
-    this.novaExperiencia = this.novaExperiencia.bind(this);
-    this.apagarExperiencia = this.apagarExperiencia.bind(this);
-
-    // habilidade
-    this.novaHabilidade = this.novaHabilidade.bind(this);
-    this.apagarHabilidade = this.apagarHabilidade.bind(this);
-
-    // form exibido
-    this.mudarForm = this.mudarForm.bind(this);
-  }
+  // states
+  const states = {
+    nome,
+    celular,
+    email,
+    linkedin,
+    objetivo,
+    formAtual,
+    formacoes,
+    experiencias,
+    habilidades,
+  };
 
   // states de contato
-  defNome = (e) => this.setState({ nome: e.target.value });
-  defEmail = (e) => this.setState({ email: e.target.value });
-  defCelular = (e) => this.setState({ celular: e.target.value });
-  defLinkedin = (e) => this.setState({ linkedin: e.target.value });
+  const defContatos = {
+    defNome: (e) => setNome(e.target.value),
+    defEmail: (e) => setEmail(e.target.value),
+    defCelular: (e) => setCelular(e.target.value),
+    defLinkedin: (e) => setLinkedin(e.target.value),
+  };
 
   // state de objetivo
-  defObjetivo = (e) => this.setState({ objetivo: e.target.value });
+  const defObjetivo = (e) => setObjetivo(e.target.value);
 
   // states de formação
-  novaFormacao = (formacao) => {
-    this.setState((ant) => {
-      const novasFormacoes = [...ant.formacoes];
+  const novaFormacao = (formacao) => {
+    setFormacoes(() => {
+      const novasFormacoes = [...formacoes];
       let edicao = false;
       novasFormacoes.forEach((f) => {
         if (f.id === formacao.id) {
@@ -70,24 +56,21 @@ class App extends Component {
       });
       if (edicao) {
         return novasFormacoes;
+      } else {
+        return [...formacoes, formacao];
       }
-      return {
-        formacoes: [...ant.formacoes, formacao],
-      };
     });
   };
 
-  apagarFormacao = (id) =>
-    this.setState((ant) => {
-      return {
-        formacoes: ant.formacoes.filter((f) => f.id !== id),
-      };
-    });
+  const funcFormacao = {
+    nova: novaFormacao,
+    apagar: (id) => setFormacoes(formacoes.filter((f) => f.id !== id)),
+  };
 
   // states de experiencias
-  novaExperiencia = (experiencia) =>
-    this.setState((ant) => {
-      const novasExperiencias = [...ant.experiencias];
+  const novaExperiencia = (experiencia) =>
+    setExperiencias(() => {
+      const novasExperiencias = [...experiencias];
       let edicao = false;
       novasExperiencias.forEach((e) => {
         if (e.id === experiencia.id) {
@@ -104,22 +87,18 @@ class App extends Component {
       if (edicao) {
         return novasExperiencias;
       }
-      return {
-        experiencias: [...ant.experiencias, experiencia],
-      };
+      return [...experiencias, experiencia];
     });
 
-  apagarExperiencia = (id) =>
-    this.setState((ant) => {
-      return {
-        experiencias: ant.experiencias.filter((e) => e.id !== id),
-      };
-    });
+  const funcExperiencia = {
+    nova: novaExperiencia,
+    apagar: (id) => setExperiencias(experiencias.filter((e) => e.id !== id)),
+  };
 
   // states de habilidades
-  novaHabilidade = (habilidade) =>
-    this.setState((ant) => {
-      const novasHabilidades = [...ant.habilidades];
+  const novaHabilidade = (habilidade) =>
+    setHabilidades(() => {
+      const novasHabilidades = [...habilidades];
       let edicao = false;
       novasHabilidades.forEach((h) => {
         if (h.id === habilidade.id) {
@@ -131,63 +110,34 @@ class App extends Component {
       if (edicao) {
         return novasHabilidades;
       }
-      return {
-        habilidades: [...ant.habilidades, habilidade],
-      };
+      return [...habilidades, habilidade];
     });
 
-  apagarHabilidade = (id) =>
-    this.setState((ant) => {
-      return {
-        habilidades: ant.habilidades.filter((h) => h.id !== id),
-      };
-    });
+  const funcHabilidade = {
+    nova: novaHabilidade,
+    apagar: (id) => setHabilidades(habilidades.filter((h) => h.id !== id)),
+  };
 
-  // state de form exibido
-  mudarForm(nomeForm) {
-    this.setState({ formAtual: nomeForm });
-  }
-
-  render() {
-    const defContatos = {
-      defNome: this.defNome,
-      defEmail: this.defEmail,
-      defCelular: this.defCelular,
-      defLinkedin: this.defLinkedin,
-    };
-    const funcFormacao = {
-      nova: this.novaFormacao,
-      apagar: this.apagarFormacao,
-    };
-    const funcExperiencia = {
-      nova: this.novaExperiencia,
-      apagar: this.apagarExperiencia,
-    };
-    const funcHabilidade = {
-      nova: this.novaHabilidade,
-      apagar: this.apagarHabilidade,
-    };
-    return (
-      <>
-        <Header />
-        <main>
-          <section className='dados'>
-            <Formulario
-              states={this.state}
-              mudarForm={this.mudarForm}
-              defContatos={defContatos}
-              funcFormacao={funcFormacao}
-              funcExperiencia={funcExperiencia}
-              funcHabilidade={funcHabilidade}
-              defObjetivo={this.defObjetivo}
-            />
-          </section>
-          <Curriculo states={this.state} />
-        </main>
-        <Footer />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Header />
+      <main>
+        <section className='dados'>
+          <Formulario
+            states={states}
+            mudarForm={setFormAtual}
+            defContatos={defContatos}
+            funcFormacao={funcFormacao}
+            funcExperiencia={funcExperiencia}
+            funcHabilidade={funcHabilidade}
+            defObjetivo={defObjetivo}
+          />
+        </section>
+        <Curriculo states={states} />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default App;
