@@ -27,7 +27,7 @@ const CadastroExperiencias = (props) => {
   };
 
   const btnAtualizar = (codigo) => {
-    const experiencia = this.props.states.experiencias.filter(
+    const experiencia = props.states.experiencias.filter(
       (f) => f.id === codigo
     )[0];
     setCodigo(experiencia.id);
