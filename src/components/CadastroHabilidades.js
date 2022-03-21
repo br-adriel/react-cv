@@ -17,7 +17,7 @@ const CadastroHabilidades = (props) => {
   };
 
   const defHabilidade = {
-    habilidade: (e) => setHabilidade(e.arget.value),
+    habilidade: (e) => setHabilidade(e.target.value),
     nivel: (e) => setNivel(e.target.value),
   };
 
