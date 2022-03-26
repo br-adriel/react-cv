@@ -42,8 +42,8 @@ const App = () => {
 
   // states de formação
   const novaFormacao = (formacao) => {
-    setFormacoes(() => {
-      const novasFormacoes = [...formacoes];
+    setFormacoes((prevFormacoes) => {
+      const novasFormacoes = [...prevFormacoes];
       let edicao = false;
       novasFormacoes.forEach((f) => {
         if (f.id === formacao.id) {
@@ -57,20 +57,21 @@ const App = () => {
       if (edicao) {
         return novasFormacoes;
       } else {
-        return [...formacoes, formacao];
+        return [...prevFormacoes, formacao];
       }
     });
   };
 
   const funcFormacao = {
     nova: novaFormacao,
-    apagar: (id) => setFormacoes(formacoes.filter((f) => f.id !== id)),
+    apagar: (id) =>
+      setFormacoes((prevFormacoes) => prevFormacoes.filter((f) => f.id !== id)),
   };
 
   // states de experiencias
   const novaExperiencia = (experiencia) =>
-    setExperiencias(() => {
-      const novasExperiencias = [...experiencias];
+    setExperiencias((prevExperiencias) => {
+      const novasExperiencias = [...prevExperiencias];
       let edicao = false;
       novasExperiencias.forEach((e) => {
         if (e.id === experiencia.id) {
@@ -87,18 +88,21 @@ const App = () => {
       if (edicao) {
         return novasExperiencias;
       }
-      return [...experiencias, experiencia];
+      return [...prevExperiencias, experiencia];
     });
 
   const funcExperiencia = {
     nova: novaExperiencia,
-    apagar: (id) => setExperiencias(experiencias.filter((e) => e.id !== id)),
+    apagar: (id) =>
+      setExperiencias((prevExperiencias) =>
+        prevExperiencias.filter((e) => e.id !== id)
+      ),
   };
 
   // states de habilidades
   const novaHabilidade = (habilidade) =>
-    setHabilidades(() => {
-      const novasHabilidades = [...habilidades];
+    setHabilidades((prevHabilidades) => {
+      const novasHabilidades = [...prevHabilidades];
       let edicao = false;
       novasHabilidades.forEach((h) => {
         if (h.id === habilidade.id) {
@@ -110,12 +114,15 @@ const App = () => {
       if (edicao) {
         return novasHabilidades;
       }
-      return [...habilidades, habilidade];
+      return [...prevHabilidades, habilidade];
     });
 
   const funcHabilidade = {
     nova: novaHabilidade,
-    apagar: (id) => setHabilidades(habilidades.filter((h) => h.id !== id)),
+    apagar: (id) =>
+      setHabilidades((prevHabilidades) =>
+        prevHabilidades.filter((h) => h.id !== id)
+      ),
   };
 
   return (
